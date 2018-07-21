@@ -1,0 +1,27 @@
+﻿.btn-group > .btn:first-child {
+    display: none;
+}
+
+.ddlSet {
+    /* border: 0; */
+    padding: 10px 18px 10px 18px;
+    position: relative;
+    margin: -5px 0px 0px 0px;
+    background-color: transparent;
+    /* border: 1px solid #E3E3E3; */
+    border-radius: 30px;
+    color: #ababab !important;
+    line-height: normal;
+    font-size: .93em;
+    width: 100%;
+    border-color: #E3E3E3;
+}
+
+    .ddlSet:focus {
+        border: 1px solid #000;
+    }
+
+.noPadding {
+    padding-left: 0px;
+    padding-right: 0px;
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="22d6f8b2241f43e28f14af7aea1b0264" Name="Diagram1">
+        <EntityTypeShape EntityType="KungFuModel1.tblAttendence" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KungFuModel1.tblClass" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KungFuModel1.tblClassLevel" Width="1.5" PointX="1.5" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KungFuModel1.tblInstructor" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KungFuModel1.tblParent" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KungFuModel1.tblPayment" Width="1.5" PointX="6" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KungFuModel1.tblPaymentType" Width="1.5" PointX="3.75" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KungFuModel1.tblRank" Width="1.5" PointX="3.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="KungFuModel1.tblStudent" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KungFuModel1.tblStudentProgress" Width="1.5" PointX="6" PointY="3.875" IsExpanded="true" />
+        <AssociationConnector Association="KungFuModel1.FK__tblAttend__CLASS__21B6055D" ManuallyRouted="false" />
+        <AssociationConnector Association="KungFuModel1.FK__tblAttend__STU_I__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="KungFuModel1.FK__tblClass__CLASS___2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="KungFuModel1.FK__tblParent__STU_I__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="KungFuModel1.FK__tblPaymen__PAYME__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="KungFuModel1.FK__tblPaymen__STU_I__24927208" ManuallyRouted="false" />
+        <AssociationConnector Association="KungFuModel1.FK__tblStuden__RANK___29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="KungFuModel1.FK__tblStuden__STU_I__2A4B4B5E" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

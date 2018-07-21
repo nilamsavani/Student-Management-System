@@ -1,0 +1,798 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="KungFuModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblAttendence">
+          <Key>
+            <PropertyRef Name="ATT_ID" />
+          </Key>
+          <Property Name="ATT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CLASS_ID" Type="int" />
+          <Property Name="STU_ID" Type="int" />
+          <Property Name="ATT_DATE" Type="date" />
+          <Property Name="ATT_STATUS" Type="bit" />
+          <Property Name="ATT_CREATED_BY" Type="int" />
+          <Property Name="ATT_CREATED_DATE" Type="date" />
+          <Property Name="ATT_MODIFY_BY" Type="int" />
+          <Property Name="ATT_MODIFIED_DATE" Type="date" />
+        </EntityType>
+        <EntityType Name="tblClass">
+          <Key>
+            <PropertyRef Name="CLASS_ID" />
+          </Key>
+          <Property Name="CLASS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CLASS_LEVEL_ID" Type="int" />
+          <Property Name="CLASS_DAY" Type="varchar" MaxLength="50" />
+          <Property Name="CLASS_TIME" Type="varchar" MaxLength="50" />
+          <Property Name="CLASS_STATUS" Type="bit" />
+          <Property Name="CLASS_CREATED_BY" Type="int" />
+          <Property Name="CLASS_CREATED_DATE" Type="date" />
+          <Property Name="CLASS_MODIFY_BY" Type="int" />
+          <Property Name="CLASS_MODIFIED_DATE" Type="date" />
+        </EntityType>
+        <EntityType Name="tblClassLevel">
+          <Key>
+            <PropertyRef Name="CLASS_LEVEL_ID" />
+          </Key>
+          <Property Name="CLASS_LEVEL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CLASS_LEVEL_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="CLASS_LEVEL_CREATED_BY" Type="int" />
+          <Property Name="CLASS_LEVEL_CREATED_DATE" Type="date" />
+          <Property Name="CLASS_LEVEL_MODIFY_BY" Type="int" />
+          <Property Name="CLASS_LEVEL_MODIFIED_DATE" Type="date" />
+          <Property Name="CLASS_STATUS" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblInstructor">
+          <Key>
+            <PropertyRef Name="INSTRUCTOR_ID" />
+          </Key>
+          <Property Name="INSTRUCTOR_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="INSTRUCTOR_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="INSTRUCTOR_PASSWORD" Type="varchar" MaxLength="50" />
+          <Property Name="INSTRUCTOR_STATUS" Type="bit" />
+          <Property Name="INSTRUCTOR_EMAIL" Type="varchar" MaxLength="100" />
+          <Property Name="INSTRICTOR_MNUM" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="tblParent">
+          <Key>
+            <PropertyRef Name="PARENT_ID" />
+          </Key>
+          <Property Name="PARENT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PARENT_FNAME" Type="varchar" MaxLength="20" />
+          <Property Name="PARENT_MNAME" Type="varchar" MaxLength="20" />
+          <Property Name="PARENT_LNAME" Type="varchar" MaxLength="20" />
+          <Property Name="PARENT_GENDER" Type="bit" />
+          <Property Name="PARENT_MNUM" Type="varchar" MaxLength="20" />
+          <Property Name="PARENT_EMAIL" Type="varchar" MaxLength="100" />
+          <Property Name="PARENT_IS_STUDENT" Type="bit" />
+          <Property Name="PARENT_STATUS" Type="bit" />
+          <Property Name="PARENT_CREATED_BY" Type="int" />
+          <Property Name="PARENT_CREATED_DATE" Type="date" />
+          <Property Name="PARENT_MODIFY_BY" Type="int" />
+          <Property Name="PARENT_MODIFIED_DATE" Type="date" />
+          <Property Name="STU_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblPayment">
+          <Key>
+            <PropertyRef Name="PAYMENT_ID" />
+          </Key>
+          <Property Name="PAYMENT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PAYMENT_TYPE_ID" Type="int" />
+          <Property Name="PAYMENT_AMOUNT" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="STU_ID" Type="int" />
+          <Property Name="PAYMENT_STATUS" Type="bit" />
+          <Property Name="PAYMENT_DATE" Type="date" />
+          <Property Name="PAYMENT_CREATED_BY" Type="int" />
+          <Property Name="PAYMENT_CREATED_DATE" Type="date" />
+          <Property Name="PAYMENT_MODIFY_BY" Type="int" />
+          <Property Name="PAYMENT_MODIFIED_DATE" Type="date" />
+        </EntityType>
+        <EntityType Name="tblPaymentType">
+          <Key>
+            <PropertyRef Name="PAYMENT_TYPE_ID" />
+          </Key>
+          <Property Name="PAYMENT_TYPE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PAYMENT_TYPE" Type="varchar" MaxLength="100" />
+          <Property Name="PAYMENT_TYPE_STATUS" Type="bit" />
+          <Property Name="PAYMENT_TYPE_CREATED_BY" Type="int" />
+          <Property Name="PAYMENT_TYPE_CREATED_DATE" Type="date" />
+          <Property Name="PAYMENT_TYPE_MODIFY_BY" Type="int" />
+          <Property Name="PAYMENT_TYPE_MODIFIED_DATE" Type="date" />
+          <Property Name="PAYMENT_TYPE_AMOUNT" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="tblRank">
+          <Key>
+            <PropertyRef Name="RANK_ID" />
+          </Key>
+          <Property Name="RANK_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RANK_BELT_COLOR" Type="varchar" MaxLength="50" />
+          <Property Name="RANK_REQUIREMENTS" Type="varchar" MaxLength="500" />
+          <Property Name="RANK_STATUS" Type="bit" />
+          <Property Name="RANK_IS_DEFAULT" Type="bit" />
+          <Property Name="RANK_CREATED_BY" Type="int" />
+          <Property Name="RANK_CREATED_DATE" Type="date" />
+          <Property Name="RANK_MODIFY_BY" Type="int" />
+          <Property Name="RANK_MODIFIED_DATE" Type="date" />
+        </EntityType>
+        <EntityType Name="tblStudent">
+          <Key>
+            <PropertyRef Name="STU_ID" />
+          </Key>
+          <Property Name="STU_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="STU_NUM" Type="varchar" MaxLength="50" />
+          <Property Name="STU_FNAME" Type="varchar" MaxLength="20" />
+          <Property Name="STU_MNAME" Type="varchar" MaxLength="20" />
+          <Property Name="STU_LNAME" Type="varchar" MaxLength="20" />
+          <Property Name="STU_DOB" Type="date" />
+          <Property Name="STU_DOJ" Type="date" />
+          <Property Name="STU_MNUM" Type="varchar" MaxLength="20" />
+          <Property Name="STU_EMAIL" Type="varchar" MaxLength="100" />
+          <Property Name="STU_STREET" Type="varchar" MaxLength="100" />
+          <Property Name="STU_CITY" Type="varchar" MaxLength="50" />
+          <Property Name="STU_STATE" Type="varchar" MaxLength="50" />
+          <Property Name="STU_ZIP" Type="varchar" MaxLength="10" />
+          <Property Name="STU_STATUS" Type="bit" />
+          <Property Name="STU_CREATED_BY" Type="int" />
+          <Property Name="STU_CREATED_DATE" Type="date" />
+          <Property Name="STU_MODIFY_BY" Type="int" />
+          <Property Name="STU_MODIFIED_DATE" Type="date" />
+          <Property Name="STU_GENDER" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblStudentProgress">
+          <Key>
+            <PropertyRef Name="STU_PROG_ID" />
+          </Key>
+          <Property Name="STU_PROG_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="STU_ID" Type="int" />
+          <Property Name="RANK_ID" Type="int" />
+          <Property Name="STU_PROG_RANK_DATE" Type="date" />
+          <Property Name="STU_PROG_STATUS" Type="bit" />
+          <Property Name="STU_PROG_CREATED_BY" Type="int" />
+          <Property Name="STU_PROG_CREATED_DATE" Type="date" />
+          <Property Name="STU_PROG_MODIFY_BY" Type="int" />
+          <Property Name="STU_PROG_MODIFIED_DATE" Type="date" />
+        </EntityType>
+        <Association Name="FK__tblAttend__CLASS__21B6055D">
+          <End Role="tblClass" Type="Self.tblClass" Multiplicity="0..1" />
+          <End Role="tblAttendence" Type="Self.tblAttendence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblClass">
+              <PropertyRef Name="CLASS_ID" />
+            </Principal>
+            <Dependent Role="tblAttendence">
+              <PropertyRef Name="CLASS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblAttend__STU_I__239E4DCF">
+          <End Role="tblStudent" Type="Self.tblStudent" Multiplicity="0..1" />
+          <End Role="tblAttendence" Type="Self.tblAttendence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStudent">
+              <PropertyRef Name="STU_ID" />
+            </Principal>
+            <Dependent Role="tblAttendence">
+              <PropertyRef Name="STU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblClass__CLASS___2B3F6F97">
+          <End Role="tblClassLevel" Type="Self.tblClassLevel" Multiplicity="0..1" />
+          <End Role="tblClass" Type="Self.tblClass" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblClassLevel">
+              <PropertyRef Name="CLASS_LEVEL_ID" />
+            </Principal>
+            <Dependent Role="tblClass">
+              <PropertyRef Name="CLASS_LEVEL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblParent__STU_I__3A81B327">
+          <End Role="tblStudent" Type="Self.tblStudent" Multiplicity="0..1" />
+          <End Role="tblParent" Type="Self.tblParent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStudent">
+              <PropertyRef Name="STU_ID" />
+            </Principal>
+            <Dependent Role="tblParent">
+              <PropertyRef Name="STU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblPaymen__PAYME__25869641">
+          <End Role="tblPaymentType" Type="Self.tblPaymentType" Multiplicity="0..1" />
+          <End Role="tblPayment" Type="Self.tblPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPaymentType">
+              <PropertyRef Name="PAYMENT_TYPE_ID" />
+            </Principal>
+            <Dependent Role="tblPayment">
+              <PropertyRef Name="PAYMENT_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblPaymen__STU_I__24927208">
+          <End Role="tblStudent" Type="Self.tblStudent" Multiplicity="0..1" />
+          <End Role="tblPayment" Type="Self.tblPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStudent">
+              <PropertyRef Name="STU_ID" />
+            </Principal>
+            <Dependent Role="tblPayment">
+              <PropertyRef Name="STU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblStuden__RANK___29572725">
+          <End Role="tblRank" Type="Self.tblRank" Multiplicity="0..1" />
+          <End Role="tblStudentProgress" Type="Self.tblStudentProgress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRank">
+              <PropertyRef Name="RANK_ID" />
+            </Principal>
+            <Dependent Role="tblStudentProgress">
+              <PropertyRef Name="RANK_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblStuden__STU_I__2A4B4B5E">
+          <End Role="tblStudent" Type="Self.tblStudent" Multiplicity="0..1" />
+          <End Role="tblStudentProgress" Type="Self.tblStudentProgress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStudent">
+              <PropertyRef Name="STU_ID" />
+            </Principal>
+            <Dependent Role="tblStudentProgress">
+              <PropertyRef Name="STU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KungFuModel1StoreContainer">
+          <EntitySet Name="tblAttendence" EntityType="Self.tblAttendence" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblClass" EntityType="Self.tblClass" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblClassLevel" EntityType="Self.tblClassLevel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblInstructor" EntityType="Self.tblInstructor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblParent" EntityType="Self.tblParent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPayment" EntityType="Self.tblPayment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPaymentType" EntityType="Self.tblPaymentType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblRank" EntityType="Self.tblRank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblStudent" EntityType="Self.tblStudent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblStudentProgress" EntityType="Self.tblStudentProgress" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__tblAttend__CLASS__21B6055D" Association="Self.FK__tblAttend__CLASS__21B6055D">
+            <End Role="tblClass" EntitySet="tblClass" />
+            <End Role="tblAttendence" EntitySet="tblAttendence" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblAttend__STU_I__239E4DCF" Association="Self.FK__tblAttend__STU_I__239E4DCF">
+            <End Role="tblStudent" EntitySet="tblStudent" />
+            <End Role="tblAttendence" EntitySet="tblAttendence" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblClass__CLASS___2B3F6F97" Association="Self.FK__tblClass__CLASS___2B3F6F97">
+            <End Role="tblClassLevel" EntitySet="tblClassLevel" />
+            <End Role="tblClass" EntitySet="tblClass" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblParent__STU_I__3A81B327" Association="Self.FK__tblParent__STU_I__3A81B327">
+            <End Role="tblStudent" EntitySet="tblStudent" />
+            <End Role="tblParent" EntitySet="tblParent" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblPaymen__PAYME__25869641" Association="Self.FK__tblPaymen__PAYME__25869641">
+            <End Role="tblPaymentType" EntitySet="tblPaymentType" />
+            <End Role="tblPayment" EntitySet="tblPayment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblPaymen__STU_I__24927208" Association="Self.FK__tblPaymen__STU_I__24927208">
+            <End Role="tblStudent" EntitySet="tblStudent" />
+            <End Role="tblPayment" EntitySet="tblPayment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblStuden__RANK___29572725" Association="Self.FK__tblStuden__RANK___29572725">
+            <End Role="tblRank" EntitySet="tblRank" />
+            <End Role="tblStudentProgress" EntitySet="tblStudentProgress" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblStuden__STU_I__2A4B4B5E" Association="Self.FK__tblStuden__STU_I__2A4B4B5E">
+            <End Role="tblStudent" EntitySet="tblStudent" />
+            <End Role="tblStudentProgress" EntitySet="tblStudentProgress" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KungFuModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblAttendence">
+          <Key>
+            <PropertyRef Name="ATT_ID" />
+          </Key>
+          <Property Name="ATT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CLASS_ID" Type="Int32" />
+          <Property Name="STU_ID" Type="Int32" />
+          <Property Name="ATT_DATE" Type="DateTime" Precision="0" />
+          <Property Name="ATT_STATUS" Type="Boolean" />
+          <Property Name="ATT_CREATED_BY" Type="Int32" />
+          <Property Name="ATT_CREATED_DATE" Type="DateTime" Precision="0" />
+          <Property Name="ATT_MODIFY_BY" Type="Int32" />
+          <Property Name="ATT_MODIFIED_DATE" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="tblClass" Relationship="Self.FK__tblAttend__CLASS__21B6055D" FromRole="tblAttendence" ToRole="tblClass" />
+          <NavigationProperty Name="tblStudent" Relationship="Self.FK__tblAttend__STU_I__239E4DCF" FromRole="tblAttendence" ToRole="tblStudent" />
+        </EntityType>
+        <EntityType Name="tblClass">
+          <Key>
+            <PropertyRef Name="CLASS_ID" />
+          </Key>
+          <Property Name="CLASS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CLASS_LEVEL_ID" Type="Int32" />
+          <Property Name="CLASS_DAY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CLASS_TIME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CLASS_STATUS" Type="Boolean" />
+          <Property Name="CLASS_CREATED_BY" Type="Int32" />
+          <Property Name="CLASS_CREATED_DATE" Type="DateTime" Precision="0" />
+          <Property Name="CLASS_MODIFY_BY" Type="Int32" />
+          <Property Name="CLASS_MODIFIED_DATE" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="tblAttendences" Relationship="Self.FK__tblAttend__CLASS__21B6055D" FromRole="tblClass" ToRole="tblAttendence" />
+          <NavigationProperty Name="tblClassLevel" Relationship="Self.FK__tblClass__CLASS___2B3F6F97" FromRole="tblClass" ToRole="tblClassLevel" />
+        </EntityType>
+        <EntityType Name="tblClassLevel">
+          <Key>
+            <PropertyRef Name="CLASS_LEVEL_ID" />
+          </Key>
+          <Property Name="CLASS_LEVEL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CLASS_LEVEL_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CLASS_LEVEL_CREATED_BY" Type="Int32" />
+          <Property Name="CLASS_LEVEL_CREATED_DATE" Type="DateTime" Precision="0" />
+          <Property Name="CLASS_LEVEL_MODIFY_BY" Type="Int32" />
+          <Property Name="CLASS_LEVEL_MODIFIED_DATE" Type="DateTime" Precision="0" />
+          <Property Name="CLASS_STATUS" Type="Boolean" />
+          <NavigationProperty Name="tblClasses" Relationship="Self.FK__tblClass__CLASS___2B3F6F97" FromRole="tblClassLevel" ToRole="tblClass" />
+        </EntityType>
+        <EntityType Name="tblInstructor">
+          <Key>
+            <PropertyRef Name="INSTRUCTOR_ID" />
+          </Key>
+          <Property Name="INSTRUCTOR_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="INSTRUCTOR_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="INSTRUCTOR_PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="INSTRUCTOR_STATUS" Type="Boolean" />
+          <Property Name="INSTRUCTOR_EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="INSTRICTOR_MNUM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblParent">
+          <Key>
+            <PropertyRef Name="PARENT_ID" />
+          </Key>
+          <Property Name="PARENT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PARENT_FNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PARENT_MNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PARENT_LNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PARENT_GENDER" Type="Boolean" />
+          <Property Name="PARENT_MNUM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PARENT_EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PARENT_IS_STUDENT" Type="Boolean" />
+          <Property Name="PARENT_STATUS" Type="Boolean" />
+          <Property Name="PARENT_CREATED_BY" Type="Int32" />
+          <Property Name="PARENT_CREATED_DATE" Type="DateTime" Precision="0" />
+          <Property Name="PARENT_MODIFY_BY" Type="Int32" />
+          <Property Name="PARENT_MODIFIED_DATE" Type="DateTime" Precision="0" />
+          <Property Name="STU_ID" Type="Int32" />
+          <NavigationProperty Name="tblStudent" Relationship="Self.FK__tblParent__STU_I__3A81B327" FromRole="tblParent" ToRole="tblStudent" />
+        </EntityType>
+        <EntityType Name="tblPayment">
+          <Key>
+            <PropertyRef Name="PAYMENT_ID" />
+          </Key>
+          <Property Name="PAYMENT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PAYMENT_TYPE_ID" Type="Int32" />
+          <Property Name="PAYMENT_AMOUNT" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="STU_ID" Type="Int32" />
+          <Property Name="PAYMENT_STATUS" Type="Boolean" />
+          <Property Name="PAYMENT_DATE" Type="DateTime" Precision="0" />
+          <Property Name="PAYMENT_CREATED_BY" Type="Int32" />
+          <Property Name="PAYMENT_CREATED_DATE" Type="DateTime" Precision="0" />
+          <Property Name="PAYMENT_MODIFY_BY" Type="Int32" />
+          <Property Name="PAYMENT_MODIFIED_DATE" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="tblPaymentType" Relationship="Self.FK__tblPaymen__PAYME__25869641" FromRole="tblPayment" ToRole="tblPaymentType" />
+          <NavigationProperty Name="tblStudent" Relationship="Self.FK__tblPaymen__STU_I__24927208" FromRole="tblPayment" ToRole="tblStudent" />
+        </EntityType>
+        <EntityType Name="tblPaymentType">
+          <Key>
+            <PropertyRef Name="PAYMENT_TYPE_ID" />
+          </Key>
+          <Property Name="PAYMENT_TYPE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PAYMENT_TYPE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PAYMENT_TYPE_STATUS" Type="Boolean" />
+          <Property Name="PAYMENT_TYPE_CREATED_BY" Type="Int32" />
+          <Property Name="PAYMENT_TYPE_CREATED_DATE" Type="DateTime" Precision="0" />
+          <Property Name="PAYMENT_TYPE_MODIFY_BY" Type="Int32" />
+          <Property Name="PAYMENT_TYPE_MODIFIED_DATE" Type="DateTime" Precision="0" />
+          <Property Name="PAYMENT_TYPE_AMOUNT" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="tblPayments" Relationship="Self.FK__tblPaymen__PAYME__25869641" FromRole="tblPaymentType" ToRole="tblPayment" />
+        </EntityType>
+        <EntityType Name="tblRank">
+          <Key>
+            <PropertyRef Name="RANK_ID" />
+          </Key>
+          <Property Name="RANK_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RANK_BELT_COLOR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RANK_REQUIREMENTS" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="RANK_STATUS" Type="Boolean" />
+          <Property Name="RANK_IS_DEFAULT" Type="Boolean" />
+          <Property Name="RANK_CREATED_BY" Type="Int32" />
+          <Property Name="RANK_CREATED_DATE" Type="DateTime" Precision="0" />
+          <Property Name="RANK_MODIFY_BY" Type="Int32" />
+          <Property Name="RANK_MODIFIED_DATE" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="tblStudentProgresses" Relationship="Self.FK__tblStuden__RANK___29572725" FromRole="tblRank" ToRole="tblStudentProgress" />
+        </EntityType>
+        <EntityType Name="tblStudent">
+          <Key>
+            <PropertyRef Name="STU_ID" />
+          </Key>
+          <Property Name="STU_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="STU_NUM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="STU_FNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="STU_MNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="STU_LNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="STU_DOB" Type="DateTime" Precision="0" />
+          <Property Name="STU_DOJ" Type="DateTime" Precision="0" />
+          <Property Name="STU_MNUM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="STU_EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="STU_STREET" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="STU_CITY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="STU_STATE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="STU_ZIP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="STU_STATUS" Type="Boolean" />
+          <Property Name="STU_CREATED_BY" Type="Int32" />
+          <Property Name="STU_CREATED_DATE" Type="DateTime" Precision="0" />
+          <Property Name="STU_MODIFY_BY" Type="Int32" />
+          <Property Name="STU_MODIFIED_DATE" Type="DateTime" Precision="0" />
+          <Property Name="STU_GENDER" Type="Boolean" />
+          <NavigationProperty Name="tblAttendences" Relationship="Self.FK__tblAttend__STU_I__239E4DCF" FromRole="tblStudent" ToRole="tblAttendence" />
+          <NavigationProperty Name="tblParents" Relationship="Self.FK__tblParent__STU_I__3A81B327" FromRole="tblStudent" ToRole="tblParent" />
+          <NavigationProperty Name="tblPayments" Relationship="Self.FK__tblPaymen__STU_I__24927208" FromRole="tblStudent" ToRole="tblPayment" />
+          <NavigationProperty Name="tblStudentProgresses" Relationship="Self.FK__tblStuden__STU_I__2A4B4B5E" FromRole="tblStudent" ToRole="tblStudentProgress" />
+        </EntityType>
+        <EntityType Name="tblStudentProgress">
+          <Key>
+            <PropertyRef Name="STU_PROG_ID" />
+          </Key>
+          <Property Name="STU_PROG_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="STU_ID" Type="Int32" />
+          <Property Name="RANK_ID" Type="Int32" />
+          <Property Name="STU_PROG_RANK_DATE" Type="DateTime" Precision="0" />
+          <Property Name="STU_PROG_STATUS" Type="Boolean" />
+          <Property Name="STU_PROG_CREATED_BY" Type="Int32" />
+          <Property Name="STU_PROG_CREATED_DATE" Type="DateTime" Precision="0" />
+          <Property Name="STU_PROG_MODIFY_BY" Type="Int32" />
+          <Property Name="STU_PROG_MODIFIED_DATE" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="tblRank" Relationship="Self.FK__tblStuden__RANK___29572725" FromRole="tblStudentProgress" ToRole="tblRank" />
+          <NavigationProperty Name="tblStudent" Relationship="Self.FK__tblStuden__STU_I__2A4B4B5E" FromRole="tblStudentProgress" ToRole="tblStudent" />
+        </EntityType>
+        <Association Name="FK__tblAttend__CLASS__21B6055D">
+          <End Role="tblClass" Type="Self.tblClass" Multiplicity="0..1" />
+          <End Role="tblAttendence" Type="Self.tblAttendence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblClass">
+              <PropertyRef Name="CLASS_ID" />
+            </Principal>
+            <Dependent Role="tblAttendence">
+              <PropertyRef Name="CLASS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblAttend__STU_I__239E4DCF">
+          <End Role="tblStudent" Type="Self.tblStudent" Multiplicity="0..1" />
+          <End Role="tblAttendence" Type="Self.tblAttendence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStudent">
+              <PropertyRef Name="STU_ID" />
+            </Principal>
+            <Dependent Role="tblAttendence">
+              <PropertyRef Name="STU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblClass__CLASS___2B3F6F97">
+          <End Role="tblClassLevel" Type="Self.tblClassLevel" Multiplicity="0..1" />
+          <End Role="tblClass" Type="Self.tblClass" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblClassLevel">
+              <PropertyRef Name="CLASS_LEVEL_ID" />
+            </Principal>
+            <Dependent Role="tblClass">
+              <PropertyRef Name="CLASS_LEVEL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblParent__STU_I__3A81B327">
+          <End Role="tblStudent" Type="Self.tblStudent" Multiplicity="0..1" />
+          <End Role="tblParent" Type="Self.tblParent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStudent">
+              <PropertyRef Name="STU_ID" />
+            </Principal>
+            <Dependent Role="tblParent">
+              <PropertyRef Name="STU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblPaymen__PAYME__25869641">
+          <End Role="tblPaymentType" Type="Self.tblPaymentType" Multiplicity="0..1" />
+          <End Role="tblPayment" Type="Self.tblPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPaymentType">
+              <PropertyRef Name="PAYMENT_TYPE_ID" />
+            </Principal>
+            <Dependent Role="tblPayment">
+              <PropertyRef Name="PAYMENT_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblPaymen__STU_I__24927208">
+          <End Role="tblStudent" Type="Self.tblStudent" Multiplicity="0..1" />
+          <End Role="tblPayment" Type="Self.tblPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStudent">
+              <PropertyRef Name="STU_ID" />
+            </Principal>
+            <Dependent Role="tblPayment">
+              <PropertyRef Name="STU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblStuden__RANK___29572725">
+          <End Role="tblRank" Type="Self.tblRank" Multiplicity="0..1" />
+          <End Role="tblStudentProgress" Type="Self.tblStudentProgress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRank">
+              <PropertyRef Name="RANK_ID" />
+            </Principal>
+            <Dependent Role="tblStudentProgress">
+              <PropertyRef Name="RANK_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblStuden__STU_I__2A4B4B5E">
+          <End Role="tblStudent" Type="Self.tblStudent" Multiplicity="0..1" />
+          <End Role="tblStudentProgress" Type="Self.tblStudentProgress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStudent">
+              <PropertyRef Name="STU_ID" />
+            </Principal>
+            <Dependent Role="tblStudentProgress">
+              <PropertyRef Name="STU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KungFuEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblAttendences" EntityType="Self.tblAttendence" />
+          <EntitySet Name="tblClasses" EntityType="Self.tblClass" />
+          <EntitySet Name="tblClassLevels" EntityType="Self.tblClassLevel" />
+          <EntitySet Name="tblInstructors" EntityType="Self.tblInstructor" />
+          <EntitySet Name="tblParents" EntityType="Self.tblParent" />
+          <EntitySet Name="tblPayments" EntityType="Self.tblPayment" />
+          <EntitySet Name="tblPaymentTypes" EntityType="Self.tblPaymentType" />
+          <EntitySet Name="tblRanks" EntityType="Self.tblRank" />
+          <EntitySet Name="tblStudents" EntityType="Self.tblStudent" />
+          <EntitySet Name="tblStudentProgresses" EntityType="Self.tblStudentProgress" />
+          <AssociationSet Name="FK__tblAttend__CLASS__21B6055D" Association="Self.FK__tblAttend__CLASS__21B6055D">
+            <End Role="tblClass" EntitySet="tblClasses" />
+            <End Role="tblAttendence" EntitySet="tblAttendences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblAttend__STU_I__239E4DCF" Association="Self.FK__tblAttend__STU_I__239E4DCF">
+            <End Role="tblStudent" EntitySet="tblStudents" />
+            <End Role="tblAttendence" EntitySet="tblAttendences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblClass__CLASS___2B3F6F97" Association="Self.FK__tblClass__CLASS___2B3F6F97">
+            <End Role="tblClassLevel" EntitySet="tblClassLevels" />
+            <End Role="tblClass" EntitySet="tblClasses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblParent__STU_I__3A81B327" Association="Self.FK__tblParent__STU_I__3A81B327">
+            <End Role="tblStudent" EntitySet="tblStudents" />
+            <End Role="tblParent" EntitySet="tblParents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblPaymen__PAYME__25869641" Association="Self.FK__tblPaymen__PAYME__25869641">
+            <End Role="tblPaymentType" EntitySet="tblPaymentTypes" />
+            <End Role="tblPayment" EntitySet="tblPayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblPaymen__STU_I__24927208" Association="Self.FK__tblPaymen__STU_I__24927208">
+            <End Role="tblStudent" EntitySet="tblStudents" />
+            <End Role="tblPayment" EntitySet="tblPayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblStuden__RANK___29572725" Association="Self.FK__tblStuden__RANK___29572725">
+            <End Role="tblRank" EntitySet="tblRanks" />
+            <End Role="tblStudentProgress" EntitySet="tblStudentProgresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblStuden__STU_I__2A4B4B5E" Association="Self.FK__tblStuden__STU_I__2A4B4B5E">
+            <End Role="tblStudent" EntitySet="tblStudents" />
+            <End Role="tblStudentProgress" EntitySet="tblStudentProgresses" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KungFuModel1StoreContainer" CdmEntityContainer="KungFuEntities2">
+          <EntitySetMapping Name="tblAttendences">
+            <EntityTypeMapping TypeName="KungFuModel1.tblAttendence">
+              <MappingFragment StoreEntitySet="tblAttendence">
+                <ScalarProperty Name="ATT_ID" ColumnName="ATT_ID" />
+                <ScalarProperty Name="CLASS_ID" ColumnName="CLASS_ID" />
+                <ScalarProperty Name="STU_ID" ColumnName="STU_ID" />
+                <ScalarProperty Name="ATT_DATE" ColumnName="ATT_DATE" />
+                <ScalarProperty Name="ATT_STATUS" ColumnName="ATT_STATUS" />
+                <ScalarProperty Name="ATT_CREATED_BY" ColumnName="ATT_CREATED_BY" />
+                <ScalarProperty Name="ATT_CREATED_DATE" ColumnName="ATT_CREATED_DATE" />
+                <ScalarProperty Name="ATT_MODIFY_BY" ColumnName="ATT_MODIFY_BY" />
+                <ScalarProperty Name="ATT_MODIFIED_DATE" ColumnName="ATT_MODIFIED_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblClasses">
+            <EntityTypeMapping TypeName="KungFuModel1.tblClass">
+              <MappingFragment StoreEntitySet="tblClass">
+                <ScalarProperty Name="CLASS_ID" ColumnName="CLASS_ID" />
+                <ScalarProperty Name="CLASS_LEVEL_ID" ColumnName="CLASS_LEVEL_ID" />
+                <ScalarProperty Name="CLASS_DAY" ColumnName="CLASS_DAY" />
+                <ScalarProperty Name="CLASS_TIME" ColumnName="CLASS_TIME" />
+                <ScalarProperty Name="CLASS_STATUS" ColumnName="CLASS_STATUS" />
+                <ScalarProperty Name="CLASS_CREATED_BY" ColumnName="CLASS_CREATED_BY" />
+                <ScalarProperty Name="CLASS_CREATED_DATE" ColumnName="CLASS_CREATED_DATE" />
+                <ScalarProperty Name="CLASS_MODIFY_BY" ColumnName="CLASS_MODIFY_BY" />
+                <ScalarProperty Name="CLASS_MODIFIED_DATE" ColumnName="CLASS_MODIFIED_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblClassLevels">
+            <EntityTypeMapping TypeName="KungFuModel1.tblClassLevel">
+              <MappingFragment StoreEntitySet="tblClassLevel">
+                <ScalarProperty Name="CLASS_LEVEL_ID" ColumnName="CLASS_LEVEL_ID" />
+                <ScalarProperty Name="CLASS_LEVEL_NAME" ColumnName="CLASS_LEVEL_NAME" />
+                <ScalarProperty Name="CLASS_LEVEL_CREATED_BY" ColumnName="CLASS_LEVEL_CREATED_BY" />
+                <ScalarProperty Name="CLASS_LEVEL_CREATED_DATE" ColumnName="CLASS_LEVEL_CREATED_DATE" />
+                <ScalarProperty Name="CLASS_LEVEL_MODIFY_BY" ColumnName="CLASS_LEVEL_MODIFY_BY" />
+                <ScalarProperty Name="CLASS_LEVEL_MODIFIED_DATE" ColumnName="CLASS_LEVEL_MODIFIED_DATE" />
+                <ScalarProperty Name="CLASS_STATUS" ColumnName="CLASS_STATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblInstructors">
+            <EntityTypeMapping TypeName="KungFuModel1.tblInstructor">
+              <MappingFragment StoreEntitySet="tblInstructor">
+                <ScalarProperty Name="INSTRUCTOR_ID" ColumnName="INSTRUCTOR_ID" />
+                <ScalarProperty Name="INSTRUCTOR_NAME" ColumnName="INSTRUCTOR_NAME" />
+                <ScalarProperty Name="INSTRUCTOR_PASSWORD" ColumnName="INSTRUCTOR_PASSWORD" />
+                <ScalarProperty Name="INSTRUCTOR_STATUS" ColumnName="INSTRUCTOR_STATUS" />
+                <ScalarProperty Name="INSTRUCTOR_EMAIL" ColumnName="INSTRUCTOR_EMAIL" />
+                <ScalarProperty Name="INSTRICTOR_MNUM" ColumnName="INSTRICTOR_MNUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblParents">
+            <EntityTypeMapping TypeName="KungFuModel1.tblParent">
+              <MappingFragment StoreEntitySet="tblParent">
+                <ScalarProperty Name="PARENT_ID" ColumnName="PARENT_ID" />
+                <ScalarProperty Name="PARENT_FNAME" ColumnName="PARENT_FNAME" />
+                <ScalarProperty Name="PARENT_MNAME" ColumnName="PARENT_MNAME" />
+                <ScalarProperty Name="PARENT_LNAME" ColumnName="PARENT_LNAME" />
+                <ScalarProperty Name="PARENT_GENDER" ColumnName="PARENT_GENDER" />
+                <ScalarProperty Name="PARENT_MNUM" ColumnName="PARENT_MNUM" />
+                <ScalarProperty Name="PARENT_EMAIL" ColumnName="PARENT_EMAIL" />
+                <ScalarProperty Name="PARENT_IS_STUDENT" ColumnName="PARENT_IS_STUDENT" />
+                <ScalarProperty Name="PARENT_STATUS" ColumnName="PARENT_STATUS" />
+                <ScalarProperty Name="PARENT_CREATED_BY" ColumnName="PARENT_CREATED_BY" />
+                <ScalarProperty Name="PARENT_CREATED_DATE" ColumnName="PARENT_CREATED_DATE" />
+                <ScalarProperty Name="PARENT_MODIFY_BY" ColumnName="PARENT_MODIFY_BY" />
+                <ScalarProperty Name="PARENT_MODIFIED_DATE" ColumnName="PARENT_MODIFIED_DATE" />
+                <ScalarProperty Name="STU_ID" ColumnName="STU_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPayments">
+            <EntityTypeMapping TypeName="KungFuModel1.tblPayment">
+              <MappingFragment StoreEntitySet="tblPayment">
+                <ScalarProperty Name="PAYMENT_ID" ColumnName="PAYMENT_ID" />
+                <ScalarProperty Name="PAYMENT_TYPE_ID" ColumnName="PAYMENT_TYPE_ID" />
+                <ScalarProperty Name="PAYMENT_AMOUNT" ColumnName="PAYMENT_AMOUNT" />
+                <ScalarProperty Name="STU_ID" ColumnName="STU_ID" />
+                <ScalarProperty Name="PAYMENT_STATUS" ColumnName="PAYMENT_STATUS" />
+                <ScalarProperty Name="PAYMENT_DATE" ColumnName="PAYMENT_DATE" />
+                <ScalarProperty Name="PAYMENT_CREATED_BY" ColumnName="PAYMENT_CREATED_BY" />
+                <ScalarProperty Name="PAYMENT_CREATED_DATE" ColumnName="PAYMENT_CREATED_DATE" />
+                <ScalarProperty Name="PAYMENT_MODIFY_BY" ColumnName="PAYMENT_MODIFY_BY" />
+                <ScalarProperty Name="PAYMENT_MODIFIED_DATE" ColumnName="PAYMENT_MODIFIED_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPaymentTypes">
+            <EntityTypeMapping TypeName="KungFuModel1.tblPaymentType">
+              <MappingFragment StoreEntitySet="tblPaymentType">
+                <ScalarProperty Name="PAYMENT_TYPE_ID" ColumnName="PAYMENT_TYPE_ID" />
+                <ScalarProperty Name="PAYMENT_TYPE" ColumnName="PAYMENT_TYPE" />
+                <ScalarProperty Name="PAYMENT_TYPE_STATUS" ColumnName="PAYMENT_TYPE_STATUS" />
+                <ScalarProperty Name="PAYMENT_TYPE_CREATED_BY" ColumnName="PAYMENT_TYPE_CREATED_BY" />
+                <ScalarProperty Name="PAYMENT_TYPE_CREATED_DATE" ColumnName="PAYMENT_TYPE_CREATED_DATE" />
+                <ScalarProperty Name="PAYMENT_TYPE_MODIFY_BY" ColumnName="PAYMENT_TYPE_MODIFY_BY" />
+                <ScalarProperty Name="PAYMENT_TYPE_MODIFIED_DATE" ColumnName="PAYMENT_TYPE_MODIFIED_DATE" />
+                <ScalarProperty Name="PAYMENT_TYPE_AMOUNT" ColumnName="PAYMENT_TYPE_AMOUNT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRanks">
+            <EntityTypeMapping TypeName="KungFuModel1.tblRank">
+              <MappingFragment StoreEntitySet="tblRank">
+                <ScalarProperty Name="RANK_ID" ColumnName="RANK_ID" />
+                <ScalarProperty Name="RANK_BELT_COLOR" ColumnName="RANK_BELT_COLOR" />
+                <ScalarProperty Name="RANK_REQUIREMENTS" ColumnName="RANK_REQUIREMENTS" />
+                <ScalarProperty Name="RANK_STATUS" ColumnName="RANK_STATUS" />
+                <ScalarProperty Name="RANK_IS_DEFAULT" ColumnName="RANK_IS_DEFAULT" />
+                <ScalarProperty Name="RANK_CREATED_BY" ColumnName="RANK_CREATED_BY" />
+                <ScalarProperty Name="RANK_CREATED_DATE" ColumnName="RANK_CREATED_DATE" />
+                <ScalarProperty Name="RANK_MODIFY_BY" ColumnName="RANK_MODIFY_BY" />
+                <ScalarProperty Name="RANK_MODIFIED_DATE" ColumnName="RANK_MODIFIED_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStudents">
+            <EntityTypeMapping TypeName="KungFuModel1.tblStudent">
+              <MappingFragment StoreEntitySet="tblStudent">
+                <ScalarProperty Name="STU_ID" ColumnName="STU_ID" />
+                <ScalarProperty Name="STU_NUM" ColumnName="STU_NUM" />
+                <ScalarProperty Name="STU_FNAME" ColumnName="STU_FNAME" />
+                <ScalarProperty Name="STU_MNAME" ColumnName="STU_MNAME" />
+                <ScalarProperty Name="STU_LNAME" ColumnName="STU_LNAME" />
+                <ScalarProperty Name="STU_DOB" ColumnName="STU_DOB" />
+                <ScalarProperty Name="STU_DOJ" ColumnName="STU_DOJ" />
+                <ScalarProperty Name="STU_MNUM" ColumnName="STU_MNUM" />
+                <ScalarProperty Name="STU_EMAIL" ColumnName="STU_EMAIL" />
+                <ScalarProperty Name="STU_STREET" ColumnName="STU_STREET" />
+                <ScalarProperty Name="STU_CITY" ColumnName="STU_CITY" />
+                <ScalarProperty Name="STU_STATE" ColumnName="STU_STATE" />
+                <ScalarProperty Name="STU_ZIP" ColumnName="STU_ZIP" />
+                <ScalarProperty Name="STU_STATUS" ColumnName="STU_STATUS" />
+                <ScalarProperty Name="STU_CREATED_BY" ColumnName="STU_CREATED_BY" />
+                <ScalarProperty Name="STU_CREATED_DATE" ColumnName="STU_CREATED_DATE" />
+                <ScalarProperty Name="STU_MODIFY_BY" ColumnName="STU_MODIFY_BY" />
+                <ScalarProperty Name="STU_MODIFIED_DATE" ColumnName="STU_MODIFIED_DATE" />
+                <ScalarProperty Name="STU_GENDER" ColumnName="STU_GENDER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStudentProgresses">
+            <EntityTypeMapping TypeName="KungFuModel1.tblStudentProgress">
+              <MappingFragment StoreEntitySet="tblStudentProgress">
+                <ScalarProperty Name="STU_PROG_ID" ColumnName="STU_PROG_ID" />
+                <ScalarProperty Name="STU_ID" ColumnName="STU_ID" />
+                <ScalarProperty Name="RANK_ID" ColumnName="RANK_ID" />
+                <ScalarProperty Name="STU_PROG_RANK_DATE" ColumnName="STU_PROG_RANK_DATE" />
+                <ScalarProperty Name="STU_PROG_STATUS" ColumnName="STU_PROG_STATUS" />
+                <ScalarProperty Name="STU_PROG_CREATED_BY" ColumnName="STU_PROG_CREATED_BY" />
+                <ScalarProperty Name="STU_PROG_CREATED_DATE" ColumnName="STU_PROG_CREATED_DATE" />
+                <ScalarProperty Name="STU_PROG_MODIFY_BY" ColumnName="STU_PROG_MODIFY_BY" />
+                <ScalarProperty Name="STU_PROG_MODIFIED_DATE" ColumnName="STU_PROG_MODIFIED_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

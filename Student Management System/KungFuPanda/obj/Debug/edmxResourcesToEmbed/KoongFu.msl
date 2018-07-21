@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KungFuModelStoreContainer" CdmEntityContainer="KungFuEntities1">
+    <EntitySetMapping Name="tblAttendences">
+      <EntityTypeMapping TypeName="KungFuModel.tblAttendence">
+        <MappingFragment StoreEntitySet="tblAttendence">
+          <ScalarProperty Name="ATT_MODIFIED_DATE" ColumnName="ATT_MODIFIED_DATE" />
+          <ScalarProperty Name="ATT_MODIFY_BY" ColumnName="ATT_MODIFY_BY" />
+          <ScalarProperty Name="ATT_CREATED_DATE" ColumnName="ATT_CREATED_DATE" />
+          <ScalarProperty Name="ATT_CREATED_BY" ColumnName="ATT_CREATED_BY" />
+          <ScalarProperty Name="ATT_STATUS" ColumnName="ATT_STATUS" />
+          <ScalarProperty Name="ATT_DATE" ColumnName="ATT_DATE" />
+          <ScalarProperty Name="STU_ID" ColumnName="STU_ID" />
+          <ScalarProperty Name="CLASS_ID" ColumnName="CLASS_ID" />
+          <ScalarProperty Name="ATT_ID" ColumnName="ATT_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblClasses">
+      <EntityTypeMapping TypeName="KungFuModel.tblClass">
+        <MappingFragment StoreEntitySet="tblClass">
+          <ScalarProperty Name="CLASS_MODIFIED_DATE" ColumnName="CLASS_MODIFIED_DATE" />
+          <ScalarProperty Name="CLASS_MODIFY_BY" ColumnName="CLASS_MODIFY_BY" />
+          <ScalarProperty Name="CLASS_CREATED_DATE" ColumnName="CLASS_CREATED_DATE" />
+          <ScalarProperty Name="CLASS_CREATED_BY" ColumnName="CLASS_CREATED_BY" />
+          <ScalarProperty Name="CLASS_STATUS" ColumnName="CLASS_STATUS" />
+          <ScalarProperty Name="CLASS_TIME" ColumnName="CLASS_TIME" />
+          <ScalarProperty Name="CLASS_DAY" ColumnName="CLASS_DAY" />
+          <ScalarProperty Name="CLASS_LEVEL_ID" ColumnName="CLASS_LEVEL_ID" />
+          <ScalarProperty Name="CLASS_ID" ColumnName="CLASS_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblClassLevels">
+      <EntityTypeMapping TypeName="KungFuModel.tblClassLevel">
+        <MappingFragment StoreEntitySet="tblClassLevel">
+          <ScalarProperty Name="CLASS_STATUS" ColumnName="CLASS_STATUS" />
+          <ScalarProperty Name="CLASS_LEVEL_MODIFIED_DATE" ColumnName="CLASS_LEVEL_MODIFIED_DATE" />
+          <ScalarProperty Name="CLASS_LEVEL_MODIFY_BY" ColumnName="CLASS_LEVEL_MODIFY_BY" />
+          <ScalarProperty Name="CLASS_LEVEL_CREATED_DATE" ColumnName="CLASS_LEVEL_CREATED_DATE" />
+          <ScalarProperty Name="CLASS_LEVEL_CREATED_BY" ColumnName="CLASS_LEVEL_CREATED_BY" />
+          <ScalarProperty Name="CLASS_LEVEL_NAME" ColumnName="CLASS_LEVEL_NAME" />
+          <ScalarProperty Name="CLASS_LEVEL_ID" ColumnName="CLASS_LEVEL_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblInstructors">
+      <EntityTypeMapping TypeName="KungFuModel.tblInstructor">
+        <MappingFragment StoreEntitySet="tblInstructor">
+          <ScalarProperty Name="INSTRICTOR_MNUM" ColumnName="INSTRICTOR_MNUM" />
+          <ScalarProperty Name="INSTRUCTOR_EMAIL" ColumnName="INSTRUCTOR_EMAIL" />
+          <ScalarProperty Name="INSTRUCTOR_STATUS" ColumnName="INSTRUCTOR_STATUS" />
+          <ScalarProperty Name="INSTRUCTOR_PASSWORD" ColumnName="INSTRUCTOR_PASSWORD" />
+          <ScalarProperty Name="INSTRUCTOR_NAME" ColumnName="INSTRUCTOR_NAME" />
+          <ScalarProperty Name="INSTRUCTOR_ID" ColumnName="INSTRUCTOR_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblParents">
+      <EntityTypeMapping TypeName="KungFuModel.tblParent">
+        <MappingFragment StoreEntitySet="tblParent">
+          <ScalarProperty Name="STU_ID" ColumnName="STU_ID" />
+          <ScalarProperty Name="PARENT_MODIFIED_DATE" ColumnName="PARENT_MODIFIED_DATE" />
+          <ScalarProperty Name="PARENT_MODIFY_BY" ColumnName="PARENT_MODIFY_BY" />
+          <ScalarProperty Name="PARENT_CREATED_DATE" ColumnName="PARENT_CREATED_DATE" />
+          <ScalarProperty Name="PARENT_CREATED_BY" ColumnName="PARENT_CREATED_BY" />
+          <ScalarProperty Name="PARENT_STATUS" ColumnName="PARENT_STATUS" />
+          <ScalarProperty Name="PARENT_IS_STUDENT" ColumnName="PARENT_IS_STUDENT" />
+          <ScalarProperty Name="PARENT_EMAIL" ColumnName="PARENT_EMAIL" />
+          <ScalarProperty Name="PARENT_MNUM" ColumnName="PARENT_MNUM" />
+          <ScalarProperty Name="PARENT_GENDER" ColumnName="PARENT_GENDER" />
+          <ScalarProperty Name="PARENT_LNAME" ColumnName="PARENT_LNAME" />
+          <ScalarProperty Name="PARENT_MNAME" ColumnName="PARENT_MNAME" />
+          <ScalarProperty Name="PARENT_FNAME" ColumnName="PARENT_FNAME" />
+          <ScalarProperty Name="PARENT_ID" ColumnName="PARENT_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPayments">
+      <EntityTypeMapping TypeName="KungFuModel.tblPayment">
+        <MappingFragment StoreEntitySet="tblPayment">
+          <ScalarProperty Name="PAYMENT_MODIFIED_DATE" ColumnName="PAYMENT_MODIFIED_DATE" />
+          <ScalarProperty Name="PAYMENT_MODIFY_BY" ColumnName="PAYMENT_MODIFY_BY" />
+          <ScalarProperty Name="PAYMENT_CREATED_DATE" ColumnName="PAYMENT_CREATED_DATE" />
+          <ScalarProperty Name="PAYMENT_CREATED_BY" ColumnName="PAYMENT_CREATED_BY" />
+          <ScalarProperty Name="PAYMENT_DATE" ColumnName="PAYMENT_DATE" />
+          <ScalarProperty Name="PAYMENT_STATUS" ColumnName="PAYMENT_STATUS" />
+          <ScalarProperty Name="STU_ID" ColumnName="STU_ID" />
+          <ScalarProperty Name="PAYMENT_AMOUNT" ColumnName="PAYMENT_AMOUNT" />
+          <ScalarProperty Name="PAYMENT_TYPE_ID" ColumnName="PAYMENT_TYPE_ID" />
+          <ScalarProperty Name="PAYMENT_ID" ColumnName="PAYMENT_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPaymentTypes">
+      <EntityTypeMapping TypeName="KungFuModel.tblPaymentType">
+        <MappingFragment StoreEntitySet="tblPaymentType">
+          <ScalarProperty Name="PAYMENT_TYPE_AMOUNT" ColumnName="PAYMENT_TYPE_AMOUNT" />
+          <ScalarProperty Name="PAYMENT_TYPE_MODIFIED_DATE" ColumnName="PAYMENT_TYPE_MODIFIED_DATE" />
+          <ScalarProperty Name="PAYMENT_TYPE_MODIFY_BY" ColumnName="PAYMENT_TYPE_MODIFY_BY" />
+          <ScalarProperty Name="PAYMENT_TYPE_CREATED_DATE" ColumnName="PAYMENT_TYPE_CREATED_DATE" />
+          <ScalarProperty Name="PAYMENT_TYPE_CREATED_BY" ColumnName="PAYMENT_TYPE_CREATED_BY" />
+          <ScalarProperty Name="PAYMENT_TYPE_STATUS" ColumnName="PAYMENT_TYPE_STATUS" />
+          <ScalarProperty Name="PAYMENT_TYPE" ColumnName="PAYMENT_TYPE" />
+          <ScalarProperty Name="PAYMENT_TYPE_ID" ColumnName="PAYMENT_TYPE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRanks">
+      <EntityTypeMapping TypeName="KungFuModel.tblRank">
+        <MappingFragment StoreEntitySet="tblRank">
+          <ScalarProperty Name="RANK_MODIFIED_DATE" ColumnName="RANK_MODIFIED_DATE" />
+          <ScalarProperty Name="RANK_MODIFY_BY" ColumnName="RANK_MODIFY_BY" />
+          <ScalarProperty Name="RANK_CREATED_DATE" ColumnName="RANK_CREATED_DATE" />
+          <ScalarProperty Name="RANK_CREATED_BY" ColumnName="RANK_CREATED_BY" />
+          <ScalarProperty Name="RANK_IS_DEFAULT" ColumnName="RANK_IS_DEFAULT" />
+          <ScalarProperty Name="RANK_STATUS" ColumnName="RANK_STATUS" />
+          <ScalarProperty Name="RANK_REQUIREMENTS" ColumnName="RANK_REQUIREMENTS" />
+          <ScalarProperty Name="RANK_BELT_COLOR" ColumnName="RANK_BELT_COLOR" />
+          <ScalarProperty Name="RANK_ID" ColumnName="RANK_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblStudents">
+      <EntityTypeMapping TypeName="KungFuModel.tblStudent">
+        <MappingFragment StoreEntitySet="tblStudent">
+          <ScalarProperty Name="STU_GENDER" ColumnName="STU_GENDER" />
+          <ScalarProperty Name="STU_MODIFIED_DATE" ColumnName="STU_MODIFIED_DATE" />
+          <ScalarProperty Name="STU_MODIFY_BY" ColumnName="STU_MODIFY_BY" />
+          <ScalarProperty Name="STU_CREATED_DATE" ColumnName="STU_CREATED_DATE" />
+          <ScalarProperty Name="STU_CREATED_BY" ColumnName="STU_CREATED_BY" />
+          <ScalarProperty Name="STU_STATUS" ColumnName="STU_STATUS" />
+          <ScalarProperty Name="STU_ZIP" ColumnName="STU_ZIP" />
+          <ScalarProperty Name="STU_STATE" ColumnName="STU_STATE" />
+          <ScalarProperty Name="STU_CITY" ColumnName="STU_CITY" />
+          <ScalarProperty Name="STU_STREET" ColumnName="STU_STREET" />
+          <ScalarProperty Name="STU_EMAIL" ColumnName="STU_EMAIL" />
+          <ScalarProperty Name="STU_MNUM" ColumnName="STU_MNUM" />
+          <ScalarProperty Name="STU_DOJ" ColumnName="STU_DOJ" />
+          <ScalarProperty Name="STU_DOB" ColumnName="STU_DOB" />
+          <ScalarProperty Name="STU_LNAME" ColumnName="STU_LNAME" />
+          <ScalarProperty Name="STU_MNAME" ColumnName="STU_MNAME" />
+          <ScalarProperty Name="STU_FNAME" ColumnName="STU_FNAME" />
+          <ScalarProperty Name="STU_NUM" ColumnName="STU_NUM" />
+          <ScalarProperty Name="STU_ID" ColumnName="STU_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblStudentProgresses">
+      <EntityTypeMapping TypeName="KungFuModel.tblStudentProgress">
+        <MappingFragment StoreEntitySet="tblStudentProgress">
+          <ScalarProperty Name="STU_PROG_MODIFIED_DATE" ColumnName="STU_PROG_MODIFIED_DATE" />
+          <ScalarProperty Name="STU_PROG_MODIFY_BY" ColumnName="STU_PROG_MODIFY_BY" />
+          <ScalarProperty Name="STU_PROG_CREATED_DATE" ColumnName="STU_PROG_CREATED_DATE" />
+          <ScalarProperty Name="STU_PROG_CREATED_BY" ColumnName="STU_PROG_CREATED_BY" />
+          <ScalarProperty Name="STU_PROG_STATUS" ColumnName="STU_PROG_STATUS" />
+          <ScalarProperty Name="STU_PROG_RANK_DATE" ColumnName="STU_PROG_RANK_DATE" />
+          <ScalarProperty Name="RANK_ID" ColumnName="RANK_ID" />
+          <ScalarProperty Name="STU_ID" ColumnName="STU_ID" />
+          <ScalarProperty Name="STU_PROG_ID" ColumnName="STU_PROG_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
